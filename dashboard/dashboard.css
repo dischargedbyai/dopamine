@@ -1,0 +1,643 @@
+/**
+ * DopamineDiet - Clean Dashboard Stylesheet
+ * Typography: IBM Plex Sans
+ * Geometry: Clean rounded-md (6px - 8px) only.
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-font);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.dd-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* App Bar */
+.dd-app-bar {
+  background-color: var(--md-sys-color-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dd-app-bar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  height: 60px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dd-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dd-logo-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--md-sys-shape-corner-md);
+  background-color: var(--md-sys-color-surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dd-logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+.dd-brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+  display: block;
+  line-height: 1.2;
+}
+
+.dd-brand-tag {
+  font-size: 11px;
+  color: var(--md-sys-color-outline);
+}
+
+.dd-top-actions {
+  display: flex;
+  align-items: center;
+}
+
+.dd-master-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Segmented Tab Bar */
+.dd-nav-strip {
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface);
+}
+
+.dd-tabs {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.dd-tab {
+  height: 44px;
+  padding: 0 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s var(--md-sys-motion-standard);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.dd-tab:hover {
+  color: var(--md-sys-color-on-surface);
+}
+
+.dd-tab.active {
+  color: var(--md-sys-color-primary);
+  border-bottom-color: var(--md-sys-color-primary);
+  font-weight: 600;
+}
+
+/* Main Centered Content */
+.dd-content-container {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 24px 64px 24px;
+  flex: 1;
+}
+
+.dd-pane {
+  display: none;
+}
+
+.dd-pane.active {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: ddFadeIn 0.2s var(--md-sys-motion-standard);
+}
+
+@keyframes ddFadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Surface Cards (Clean rounded-md 8px) */
+.dd-surface-card {
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-lg);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 22px 24px;
+}
+
+.dd-card-heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+  letter-spacing: -0.1px;
+}
+
+.dd-card-sub {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: var(--md-sys-color-outline);
+}
+
+.dd-card-divider {
+  height: 1px;
+  background-color: var(--md-sys-color-outline-variant);
+  margin: 18px 0;
+}
+
+/* Hero Screen Time Card */
+.dd-hero-card {
+  padding: 24px 28px;
+}
+
+.dd-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dd-section-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--md-sys-color-outline);
+}
+
+.dd-hero-stat {
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.dd-hero-sub-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dd-stat-pill {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 6px 12px;
+  border-radius: var(--md-sys-shape-corner-md);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.dd-stat-pill-val {
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.dd-stat-pill-lbl {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.dd-hero-summary-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.dd-bullet {
+  color: var(--md-sys-color-outline);
+}
+
+/* 2-Column Grid */
+.dd-grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .dd-grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Domain Bars */
+.dd-bars-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  min-height: 150px;
+}
+
+.dd-domain-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dd-domain-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.dd-domain-bar-header span:first-child {
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.dd-domain-bar-header span:last-child {
+  color: var(--md-sys-color-outline);
+}
+
+.dd-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--md-sys-color-surface-container-highest);
+  border-radius: var(--md-sys-shape-corner-xs);
+  overflow: hidden;
+}
+
+.dd-bar-fill {
+  height: 100%;
+  background-color: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-xs);
+  transition: width 0.3s var(--md-sys-motion-standard);
+}
+
+.dd-empty-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  color: var(--md-sys-color-outline);
+  font-size: 13px;
+}
+
+.dd-canvas {
+  width: 100%;
+  height: 170px;
+  margin-top: 12px;
+}
+
+.dd-canvas-caption {
+  font-size: 11px;
+  color: var(--md-sys-color-outline);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Websites Management */
+.dd-card-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.dd-add-box {
+  display: flex;
+  gap: 8px;
+}
+
+.dd-text-input {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--md-sys-shape-corner-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-size: 13px;
+  outline: none;
+  min-width: 200px;
+  font-family: inherit;
+}
+
+.dd-text-input:focus {
+  border-color: var(--md-sys-color-primary);
+}
+
+.dd-btn-filled {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: var(--md-sys-shape-corner-md);
+  border: none;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: filter 0.15s;
+}
+
+.dd-btn-filled:hover {
+  filter: brightness(1.08);
+}
+
+/* Sites List */
+.dd-sites-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dd-site-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dd-site-item:last-child {
+  border-bottom: none;
+}
+
+.dd-site-primary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dd-site-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.dd-site-options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dd-site-opt-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.dd-btn-remove {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--md-sys-color-outline);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--md-sys-shape-corner-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.dd-btn-remove:hover {
+  color: var(--md-sys-color-error);
+  background-color: var(--md-sys-color-error-container);
+}
+
+.dd-btn-remove svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Controls & Sliders */
+.dd-control-group {
+  margin: 20px 0;
+}
+
+.dd-slider-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.dd-accent-val {
+  color: var(--md-sys-color-primary);
+  font-weight: 600;
+}
+
+.dd-slider-track {
+  width: 100%;
+  height: 6px;
+  border-radius: var(--md-sys-shape-corner-xs);
+  background: var(--md-sys-color-surface-container-highest);
+  accent-color: var(--md-sys-color-primary);
+  cursor: pointer;
+  outline: none;
+}
+
+.dd-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--md-sys-color-outline);
+  margin-top: 6px;
+}
+
+.dd-note-text {
+  font-size: 13px;
+  color: var(--md-sys-color-outline);
+  line-height: 1.5;
+  margin: 16px 0 0 0;
+}
+
+
+.dd-btn-tonal {
+  height: 34px;
+  padding: 0 16px;
+  border-radius: var(--md-sys-shape-corner-md);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.15s;
+}
+
+.dd-btn-tonal:hover {
+  background-color: var(--md-sys-state-hover);
+}
+
+/* Setting Rows */
+.dd-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.dd-setting-row:last-child {
+  border-bottom: none;
+}
+
+.dd-row-main {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  display: block;
+}
+
+.dd-row-sub {
+  font-size: 12px;
+  color: var(--md-sys-color-outline);
+  margin-top: 2px;
+  display: block;
+}
+
+/* Privacy Tab */
+.dd-privacy-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.dd-privacy-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.dd-bullet-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dd-check-svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--md-sys-color-primary);
+}
+
+.dd-data-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dd-btn-text-danger {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--md-sys-color-error);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--md-sys-shape-corner-md);
+  font-family: inherit;
+}
+
+.dd-btn-text-danger:hover {
+  background-color: var(--md-sys-color-error-container);
+}
+
+/* Clean Rounded-md Toggle Switch */
+.dd-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.dd-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.dd-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--md-sys-color-surface-container-highest);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-sm);
+  transition: all 0.2s var(--md-sys-motion-standard);
+}
+
+.dd-slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-corner-xs);
+  transition: all 0.2s var(--md-sys-motion-standard);
+}
+
+.dd-switch input:checked + .dd-slider {
+  background-color: var(--md-sys-color-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.dd-switch input:checked + .dd-slider:before {
+  transform: translateX(16px);
+  background-color: var(--md-sys-color-on-primary);
+}

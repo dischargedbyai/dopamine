@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DopamineDiet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/material-tokens.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="dd-popup">
+    <!-- Top Header -->
+    <header class="dd-top">
+      <div class="dd-title-group">
+        <img src="../icons/icon16.png" alt="" class="dd-popup-icon">
+        <span class="dd-app-title">DopamineDiet</span>
+        <span class="dd-status-indicator">Active</span>
+      </div>
+      <button id="dd-btn-open-dashboard" class="dd-icon-action" title="Open Settings & Analytics">
+        <svg viewBox="0 0 24 24" class="dd-svg"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </button>
+    </header>
+
+    <!-- Hero Screen Time Metric -->
+    <section class="dd-hero-section">
+      <div class="dd-hero-number-wrap">
+        <span id="dd-stat-time" class="dd-hero-number">0m</span>
+      </div>
+      <div class="dd-hero-label">screen time on monitored sites today</div>
+
+      <div class="dd-hero-stats-row">
+        <span class="dd-pill-stat">
+          <span id="dd-stat-scrolls" class="dd-pill-val">0</span> doomscroll reminders paused
+        </span>
+      </div>
+    </section>
+
+    <!-- Active Site Controls -->
+    <section class="dd-site-panel" id="dd-site-section">
+      <div class="dd-panel-header">
+        <span id="dd-current-domain" class="dd-domain-title">youtube.com</span>
+        <span id="dd-site-status" class="dd-site-chip">Protected</span>
+      </div>
+
+      <div class="dd-list-rows">
+        <div class="dd-row">
+          <div class="dd-row-info">
+            <span class="dd-row-title">Doomscroll limiter</span>
+            <span class="dd-row-sub">Reminds you to pause infinite feeds</span>
+          </div>
+          <label class="dd-switch">
+            <input type="checkbox" id="dd-toggle-scroll">
+            <span class="dd-slider"></span>
+          </label>
+        </div>
+
+        <div class="dd-row">
+          <div class="dd-row-info">
+            <span class="dd-row-title">Grayscale dimmer</span>
+            <span class="dd-row-sub">Mute colorful dopamine triggers</span>
+          </div>
+          <label class="dd-switch">
+            <input type="checkbox" id="dd-toggle-grayscale">
+            <span class="dd-slider"></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Neutral Site Fallback -->
+    <section class="dd-neutral-panel" id="dd-neutral-section" style="display: none;">
+      <div class="dd-neutral-info">
+        <span class="dd-row-title">Unmonitored website</span>
+        <span class="dd-row-sub">This site is not in your distraction list.</span>
+      </div>
+      <button id="dd-btn-add-current-site" class="dd-btn-secondary">
+        Add site
+      </button>
+    </section>
+
+    <!-- Quick Focus Section -->
+    <section class="dd-focus-panel">
+      <div class="dd-focus-meta">
+        <span class="dd-focus-title">Focus sprint</span>
+        <span class="dd-focus-sub" id="dd-focus-caption">25-minute deep work</span>
+      </div>
+      <button id="dd-btn-quick-focus" class="dd-btn-focus">
+        Start focus
+      </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dd-footer">
+      <button id="dd-btn-view-dashboard" class="dd-link-btn">
+        Open dashboard
+      </button>
+    </footer>
+  </div>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

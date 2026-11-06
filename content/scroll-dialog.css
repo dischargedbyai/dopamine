@@ -1,0 +1,162 @@
+/**
+ * Google Material Design 3 (Material You) Doomscroll Dialog Styles
+ * Exact M3 Elevation, Color Roles, and Typography
+ */
+
+:host {
+  all: initial;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #e2e2e6;
+  opacity: 1;
+  transition: opacity 0.25s cubic-bezier(0.2, 0, 0, 1);
+  box-sizing: border-box;
+}
+
+:host(.dd-dialog-fade-out) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dd-dialog-scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 14, 19, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Material 3 Dialog Container */
+.dd-dialog-surface {
+  position: relative;
+  z-index: 2;
+  max-width: 440px;
+  width: 90%;
+  padding: 24px;
+  background-color: #1e2024;
+  border: 1px solid rgba(226, 226, 230, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  animation: ddM3PopIn 0.25s cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+@keyframes ddM3PopIn {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.dd-dialog-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: #0842a0;
+  color: #d3e3fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+}
+
+.dd-dialog-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.dd-dialog-headline {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e2e2e6;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.dd-dialog-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #c4c7c5;
+  margin-bottom: 20px;
+}
+
+.dd-dialog-body strong {
+  color: #a8c7fa;
+  font-weight: 600;
+}
+
+.dd-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Google M3 Buttons */
+.dd-dialog-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+  letter-spacing: 0.1px;
+}
+
+/* Primary Button: Close Feed */
+.dd-btn-primary {
+  background-color: #a8c7fa;
+  color: #083063;
+}
+
+.dd-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* Secondary Button: 5 More Minutes */
+.dd-btn-secondary {
+  background-color: #004b75;
+  color: #c2e7ff;
+}
+
+.dd-btn-secondary:hover {
+  filter: brightness(1.08);
+}
+
+/* Tertiary Button: Dismiss */
+.dd-btn-tertiary {
+  background: transparent;
+  color: #8e918f;
+  font-size: 13px;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.dd-btn-tertiary:hover {
+  color: #c4c7c5;
+  background-color: rgba(226, 226, 230, 0.08);
+}

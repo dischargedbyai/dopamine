@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DopamineDiet - Digital Wellbeing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/material-tokens.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dd-shell">
+    <!-- Top Bar -->
+    <header class="dd-app-bar">
+      <div class="dd-app-bar-inner">
+        <div class="dd-brand-group">
+          <div class="dd-logo-badge">
+            <img src="../icons/icon32.png" alt="" class="dd-logo-img">
+          </div>
+          <div>
+            <span class="dd-brand-name">DopamineDiet</span>
+            <span class="dd-brand-tag">Digital wellbeing</span>
+          </div>
+        </div>
+
+        <div class="dd-top-actions">
+          <label class="dd-master-control">
+            <span class="dd-master-label">Protection</span>
+            <label class="dd-switch">
+              <input type="checkbox" id="dd-global-master-toggle" checked>
+              <span class="dd-slider"></span>
+            </label>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="dd-nav-strip">
+      <nav class="dd-tabs">
+        <button class="dd-tab active" data-tab="analytics">
+          <span>Overview</span>
+        </button>
+        <button class="dd-tab" data-tab="targets">
+          <span>Websites</span>
+        </button>
+        <button class="dd-tab" data-tab="destimulate">
+          <span>Doomscroll & filter</span>
+        </button>
+        <button class="dd-tab" data-tab="privacy">
+          <span>Data & privacy</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="dd-content-container">
+
+      <!-- Tab 1: Overview -->
+      <section id="tab-analytics" class="dd-pane active">
+        <!-- Hero Screen Time Card -->
+        <div class="dd-surface-card dd-hero-card">
+          <div class="dd-hero-header">
+            <div>
+              <span class="dd-section-sub">Today's distraction time</span>
+              <div class="dd-hero-stat" id="dash-time-today">0m</div>
+            </div>
+            <div class="dd-hero-sub-stats">
+              <div class="dd-stat-pill">
+                <span id="dash-scrolls-averted" class="dd-stat-pill-val">0</span>
+                <span class="dd-stat-pill-lbl">doomscrolls paused</span>
+              </div>
+              <div class="dd-stat-pill">
+                <span id="dash-sites-count" class="dd-stat-pill-val">8</span>
+                <span class="dd-stat-pill-lbl">monitored domains</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dd-card-divider"></div>
+
+          <div class="dd-hero-summary-line">
+            <span id="dash-time-week">0m tracked this week</span>
+            <span class="dd-bullet">•</span>
+            <span>100% on-device private tracking</span>
+          </div>
+        </div>
+
+        <!-- 2 Column Charts -->
+        <div class="dd-grid-two">
+          <div class="dd-surface-card">
+            <h2 class="dd-card-heading">Today by website</h2>
+            <div id="dash-domain-bars" class="dd-bars-wrap">
+              <div class="dd-empty-hint">No distracting websites visited today yet.</div>
+            </div>
+          </div>
+
+          <div class="dd-surface-card">
+            <h2 class="dd-card-heading">7-day activity</h2>
+            <canvas id="dash-trend-canvas" width="400" height="180" class="dd-canvas"></canvas>
+            <div class="dd-canvas-caption">Daily minutes spent across target domains</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 2: Websites -->
+      <section id="tab-targets" class="dd-pane">
+        <div class="dd-surface-card">
+          <div class="dd-card-header-bar">
+            <div>
+              <h2 class="dd-card-heading">Protected websites</h2>
+              <p class="dd-card-sub">Websites monitored for infinite scrolling and visual de-stimulation.</p>
+            </div>
+            <div class="dd-add-box">
+              <input type="text" id="dash-input-new-domain" placeholder="Domain (e.g. reddit.com)" class="dd-text-input">
+              <button id="dash-btn-add-domain" class="dd-btn-filled">Add</button>
+            </div>
+          </div>
+
+          <div class="dd-sites-list" id="dash-sites-tbody">
+            <!-- Dynamically populated clean list items -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 3: Doomscroll & filter -->
+      <section id="tab-destimulate" class="dd-pane">
+        <div class="dd-surface-card">
+          <h2 class="dd-card-heading">Infinite scroll limits</h2>
+          <p class="dd-card-sub">Gently interrupt zombie scrolling on feeds, Shorts, and Reels.</p>
+
+          <div class="dd-control-group">
+            <div class="dd-slider-meta">
+              <span>Post limit before reminder</span>
+              <span class="dd-accent-val" id="dash-posts-val">25 posts</span>
+            </div>
+            <input type="range" id="dash-slider-posts" min="10" max="60" step="5" value="25" class="dd-range">
+            <div class="dd-slider-labels">
+              <span>10 posts</span>
+              <span>25 posts (Balanced)</span>
+              <span>60 posts</span>
+            </div>
+          </div>
+
+          <div class="dd-control-group">
+            <div class="dd-slider-meta">
+              <span>Continuous feed time</span>
+              <span class="dd-accent-val" id="dash-feedtime-val">10 minutes</span>
+            </div>
+            <input type="range" id="dash-slider-feedtime" min="5" max="30" step="5" value="10" class="dd-range">
+            <div class="dd-slider-labels">
+              <span>5 mins</span>
+              <span>10 mins</span>
+              <span>30 mins</span>
+            </div>
+          </div>
+
+          <div class="dd-card-divider"></div>
+
+          <h2 class="dd-card-heading" style="margin-top: 24px;">Visual de-stimulation</h2>
+          <p class="dd-card-sub">Remove colorful badges, like counters, and stimuli.</p>
+
+          <div class="dd-setting-row">
+            <div>
+              <span class="dd-row-main">Mute red notification badges & like counts</span>
+              <span class="dd-row-sub">Suppresses attention triggers on YouTube, X, Reddit, and Instagram</span>
+            </div>
+            <label class="dd-switch">
+              <input type="checkbox" id="dash-toggle-hide-badges" checked>
+              <span class="dd-slider"></span>
+            </label>
+          </div>
+
+          <div class="dd-setting-row">
+            <div>
+              <span class="dd-row-main">Global grayscale mode</span>
+              <span class="dd-row-sub">Renders websites in grayscale to reduce stimulation</span>
+            </div>
+            <label class="dd-switch">
+              <input type="checkbox" id="dash-toggle-global-grayscale">
+              <span class="dd-slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab 4: Data & privacy -->
+      <section id="tab-privacy" class="dd-pane">
+        <div class="dd-surface-card">
+          <h2 class="dd-card-heading">Local-only guarantee</h2>
+          <p class="dd-card-sub">DopamineDiet runs completely on your machine.</p>
+
+          <div class="dd-privacy-points">
+            <div class="dd-privacy-line">
+              <span class="dd-bullet-check">
+                <svg viewBox="0 0 24 24" class="dd-check-svg"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              <span><strong>Zero analytics:</strong> No tracking pixels, cookies, or remote server requests.</span>
+            </div>
+            <div class="dd-privacy-line">
+              <span class="dd-bullet-check">
+                <svg viewBox="0 0 24 24" class="dd-check-svg"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              <span><strong>Local storage:</strong> Metrics and site preferences remain on your computer.</span>
+            </div>
+            <div class="dd-privacy-line">
+              <span class="dd-bullet-check">
+                <svg viewBox="0 0 24 24" class="dd-check-svg"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              <span><strong>Battery conscious:</strong> Pauses tracking automatically when laptop is asleep or idle.</span>
+            </div>
+          </div>
+
+          <div class="dd-card-divider"></div>
+
+          <div class="dd-data-actions">
+            <button id="dash-btn-export" class="dd-btn-tonal">
+              Export data (json)
+            </button>
+            <button id="dash-btn-reset-data" class="dd-btn-text-danger">
+              Clear all analytics
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../shared/config.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

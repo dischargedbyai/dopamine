@@ -1,0 +1,68 @@
+/**
+ * DopamineDiet - De-Stimulation Mode (Dopamine Dimmer)
+ * Injects 100% grayscale and silences addictive notifications & vanity metrics.
+ */
+
+/* 1. Grayscale Filter */
+html.dd-grayscale {
+  filter: grayscale(100%) contrast(92%) !important;
+  -webkit-filter: grayscale(100%) contrast(92%) !important;
+  transition: filter 0.4s ease-in-out !important;
+}
+
+/* Ensure doomscroll dialog retains high contrast and readable styles */
+#dd-scroll-interrupter-host {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Exempt fullscreen videos from grayscale if user is watching intentional content */
+html.dd-grayscale:fullscreen video,
+html.dd-grayscale :-webkit-full-screen video {
+  filter: grayscale(0%) !important;
+}
+
+/* 2. Hide Red Notification Badges & Addictive Triggers */
+html.dd-hide-badges .yt-spec-icon-badge-shape__badge,
+html.dd-hide-badges ytd-notification-renderer .yt-spec-icon-badge-shape__badge,
+html.dd-hide-badges ytd-guide-entry-renderer .yt-spec-icon-badge-shape__badge,
+html.dd-hide-badges ytd-rich-shelf-renderer[is-shorts],
+html.dd-hide-badges ytd-reel-shelf-renderer {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Twitter / X Badges & Counts */
+html.dd-hide-badges [data-testid="app-bar-badge"],
+html.dd-hide-badges [aria-label*="unread" i],
+html.dd-hide-badges [aria-label*="unread items" i],
+html.dd-hide-badges [data-testid="reply"] span,
+html.dd-hide-badges [data-testid="retweet"] span,
+html.dd-hide-badges [data-testid="like"] span,
+html.dd-hide-badges [data-testid="bookmark"] span {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Reddit Notification Badges & Karma Fluff */
+html.dd-hide-badges [data-testid="notification-counter"],
+html.dd-hide-badges span[class*="NotificationBadge"],
+html.dd-hide-badges [class*="unread-dot"],
+html.dd-hide-badges #chat-nav-badge {
+  display: none !important;
+}
+
+/* Instagram Notification Dots & Badges */
+html.dd-hide-badges div[style*="background-color: rgb(255, 48, 64)"],
+html.dd-hide-badges div[style*="background-color: #ff3040"],
+html.dd-hide-badges span[data-bloks-name="bk.components.Badge"] {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Facebook & LinkedIn Notification Pills */
+html.dd-hide-badges .notification-badge,
+html.dd-hide-badges span[aria-label*="unread notification" i],
+html.dd-hide-badges .nav-item__badge {
+  display: none !important;
+}
