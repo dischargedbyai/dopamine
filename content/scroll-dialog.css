@@ -66,6 +66,13 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* Ensure no icon elements render */
+.dd-dialog-icon-wrapper,
+.dd-dialog-icon,
+svg {
+  display: none !important;
+}
+
 .dd-dialog-headline {
   font-size: 20px;
   font-weight: 600;
