@@ -52,7 +52,7 @@
   z-index: 2;
   max-width: 440px;
   width: 90%;
-  padding: 24px;
+  padding: 28px 24px 24px;
   background-color: #1e2024;
   border: 1px solid rgba(226, 226, 230, 0.12);
   border-radius: 8px;
@@ -64,24 +64,6 @@
 @keyframes ddM3PopIn {
   0% { transform: scale(0.92); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
-}
-
-.dd-dialog-icon-wrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
-  background-color: #0842a0;
-  color: #d3e3fd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px auto;
-}
-
-.dd-dialog-icon {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
 }
 
 .dd-dialog-headline {
