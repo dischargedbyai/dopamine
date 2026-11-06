@@ -59,11 +59,13 @@ dopaminediet/
 │   ├── config.js              # Default settings, target domains & initial state schema
 │   ├── material-tokens.css    # Material Design 3 color roles & rounded-md tokens
 │   └── storage.js             # Local storage persistence, read/write & 60-day prune
-└── icons/
-    ├── icon16.png             # Cobalt blue rounded-md icon with lettermark
-    ├── icon32.png
-    ├── icon48.png
-    └── icon128.png
+├── icons/
+│   ├── icon16.png             # Cobalt blue rounded-md icon with lettermark
+│   ├── icon32.png
+│   ├── icon48.png
+│   └── icon128.png
+├── .gitignore
+└── LICENSE                    # MIT license
 ```
 
 ---
@@ -76,3 +78,9 @@ dopaminediet/
 4. Select the `dopaminediet` folder (`/home/priyanshu/Documents/dopaminediet`).
 5. Pin **DopamineDiet** to your Chrome toolbar.
 6. Open any target website (e.g. YouTube, X, Reddit) to test infinite scroll limits, the grayscale dimmer, and the popup controls.
+
+---
+
+## License
+
+This project is licensed under the [MIT license](LICENSE).
